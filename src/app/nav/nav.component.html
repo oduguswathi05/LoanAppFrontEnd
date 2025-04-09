@@ -1,17 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">🏦 LoanApp</a>
+    <a class="navbar-brand" routerLink="home">🏦 LoanApp</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="apply" routerLinkActive="active">Apply Now</a>
+
+        <li class="nav-item" *ngIf="auth.isCustomer()">
+          <a class="nav-link" routerLink="application" routerLinkActive="active">Apply Now</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="register" routerLinkActive="active">Sign Up</a>
+
+        <li class="nav-item" *ngIf="auth.isLoanOfficer()">
+          <a class="nav-link" routerLink="reviewloanapplications" routerLinkActive="active">Review Applications</a>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.isLoggedIn()">
+          <a class="nav-link" (click)="logout()">Log Out</a>
         </li>
       </ul>
     </div>

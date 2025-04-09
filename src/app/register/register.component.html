@@ -40,13 +40,6 @@
             <div *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched" class="text-danger">Confirm Password is required.</div>
             <div *ngIf="PasswordHash.value !== ConfirmPassword.value && ConfirmPassword.touched" class="text-danger">Passwords do not match.</div>
           </div>
-  
-          <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <input type="text" id="role" name="Role" class="form-control" ngModel #Role="ngModel" required>
-            <div *ngIf="Role.invalid && Role.touched" class="text-danger">Role is required.</div>
-          </div>
-  
           <button type="submit" class="btn btn-primary w-100" [disabled]="registerDetails.invalid">Register</button>
         </form>
       </div>
