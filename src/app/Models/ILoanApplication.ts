@@ -6,7 +6,6 @@ export interface ILoanApplication {
   creditScore?: number;
   residenceType?: string;
   loanTerm?: number;
-  interestRate?: number;
   propertyAddress?: string;
   propertyValue?: number;
   }

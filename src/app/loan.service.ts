@@ -24,8 +24,10 @@ export class LoanService {
   }
 
   updateDraftApplication(id:number,newApplication:ILoanApplication){
-    return this.http.put(`${this.apiUrl}/LoanApplications/Draft/${id}`,newApplication)
+    return this.http.put(`${this.apiUrl}/LoanApplications/Draft/${id}`,newApplication);
   }
 
-
+  submitApplication(LoanApplication:ILoanApplication){
+    return this.http.post<number>(`${this.apiUrl}/LoanApplications/Submit`,LoanApplication);
+  }
 }
