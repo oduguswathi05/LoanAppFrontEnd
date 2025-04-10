@@ -22,6 +22,9 @@ export class LoanService {
   getLoanApplicationDetailsByUserId(){
     return this.http.get<ILoanApplication[]>(`${this.apiUrl}/LoanApplications/UserId`);
   }
+  getLoanApplicationDetailsId(id:number){
+    return this.http.get<ILoanApplication>(`${this.apiUrl}/LoanApplications/${id}`);
+  }
 
   updateDraftApplication(id:number,newApplication:ILoanApplication){
     return this.http.put(`${this.apiUrl}/LoanApplications/Draft/${id}`,newApplication);
@@ -29,5 +32,16 @@ export class LoanService {
 
   submitApplication(LoanApplication:ILoanApplication){
     return this.http.post<number>(`${this.apiUrl}/LoanApplications/Submit`,LoanApplication);
+  }
+
+  getAllLoanApplications(){
+    return this.http.get<ILoanApplication[]>(`${this.apiUrl}/LoanApplications`);
+  }
+
+  reviewLoanApplication(loanId: number, status: string, comment?: string){
+    return this.http.put(`${this.apiUrl}/LoanApplications/Review/${loanId}`,{
+      loanStatus: status,
+      reviewComment: comment
+    });
   }
 }

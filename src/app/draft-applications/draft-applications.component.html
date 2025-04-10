@@ -1,7 +1,7 @@
 <div class="container mt-3">
-    <h4>Review Applications</h4>
-    <div class="list-group" *ngIf="applications.length > 0" >
-        <div *ngFor="let app of applications" class="card mb-3 p-3">
+    <h4>Your Draft Applications</h4>
+    <div class="list-group" *ngIf="drafts.length > 0" >
+        <div *ngFor="let app of drafts" class="card mb-3 p-3">
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Loan Amount:</strong> {{ app.loanAmount }}</li>
               <li class="list-group-item"><strong>Annual Income:</strong> {{ app.annualIncome }}</li>
@@ -13,12 +13,13 @@
               <li class="list-group-item"><strong>Property Value:</strong> {{ app.propertyValue }}</li>
               <li class="list-group-item"><strong>Status:</strong> {{ app.loanStatus || 'Draft' }}</li>
             </ul>
-            <button type="button" class="btn btn-primary mt-2" *ngIf="app.id !== undefined" (click)="Accept(app.id,'Approved')">Accept</button>
+            <button type="button" class="btn btn-primary mt-2" *ngIf="app.id !== undefined" (click)="editDraft(app.id)">
+              Edit Draft
+            </button>
           </div>
 
     </div>
-    <p *ngIf="applications.length === 0">No Applications to be Reviewed.</p>
+    <p *ngIf="drafts.length === 0">No drafts available.</p>
 </div>
 
   
-

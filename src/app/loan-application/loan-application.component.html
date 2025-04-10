@@ -44,27 +44,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary mt-2 me-2" *ngIf="loanStatus==='Draft'">Save as Draft</button>
                 <button type="button" class="btn btn-primary mt-2 me-2" (click)="updateDraft()" *ngIf="loanStatus==='Editing'">Save</button>
-                <button type="button" class="btn btn-primary mt-2 me-2" (click)="SubmitApplication()" *ngIf="loanStatus!=='Pending'">Submit</button>
+                <button type="button" class="btn btn-primary mt-2 me-2" (click)="SubmitApplication()">Submit</button>
 
             </form>            
         </div>
-        <div class="col-md-6" card p-3 mt-2>
-          <div *ngIf="showLoanDetails && submittedLoan" class="card p-3 mt-3">
-            <h5>Loan Application Summary</h5>
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Loan Amount:</strong> {{submittedLoan.loanAmount}}</li>
-              <li class="list-group-item"><strong>Annual Income:</strong> {{submittedLoan.annualIncome}}</li>
-              <li class="list-group-item"><strong>Employment Status:</strong> {{submittedLoan.employmentStatus}}</li>
-              <li class="list-group-item"><strong>Credit Score:</strong> {{submittedLoan.creditScore}}</li>
-              <li class="list-group-item"><strong>Residence Type:</strong> {{submittedLoan.residenceType}}</li>
-              <li class="list-group-item"><strong>Loan Term:</strong> {{submittedLoan.loanTerm}} months</li>
-              <li class="list-group-item"><strong>Property Address:</strong> {{submittedLoan.propertyAddress}}</li>
-              <li class="list-group-item"><strong>Property Value:</strong> {{submittedLoan.propertyValue}}</li>
-            </ul> 
-            <button type="button" class="btn btn-primary mt-2"  (click)="editDraft()" *ngIf="loanStatus==='Pending'">Edit Draft</button>
-           
-          </div>
+        
           
-        </div>
+        
     </div>
 </div>
