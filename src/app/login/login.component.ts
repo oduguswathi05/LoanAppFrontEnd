@@ -22,7 +22,7 @@ export class LoginComponent {
       {
         next:(response)=>{
           console.log(response)
-             this.authService.saveToken(response.token,response.role);
+             this.authService.saveToken(response.token,response.role,response.userId);
             this.router.navigate(["home"]);
         },
         error:(err)=>{

@@ -17,8 +17,14 @@
         <li class="nav-item" *ngIf="auth.isCustomer()">
           <a class="nav-link" routerLink="submitted" routerLinkActive="active">View Applications</a>
         </li>
+        <li class="nav-item" *ngIf="auth.isCustomer()">
+          <a class="nav-link" routerLink="suggestedproducts" routerLinkActive="active">Loan Products</a>
+        </li>
         <li class="nav-item" *ngIf="auth.isLoanOfficer()">
           <a class="nav-link" routerLink="reviewloanapplications" routerLinkActive="active">Review Applications</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isLoanOfficer()">
+          <a class="nav-link" routerLink="loanproducts" routerLinkActive="active">Loan Products</a>
         </li>
 
         <li class="nav-item" *ngIf="auth.isLoggedIn()">

@@ -20,7 +20,7 @@ export class SubmittedApplicationsComponent implements OnInit{
       this.loanService.getLoanApplicationDetailsByUserId().subscribe({
         next: (data) => {
           console.log(data);
-          this.submitted = data
+          this.submitted = data.filter(p=>p.loanStatus !== "Draft")
         },
         error: (err) => console.error(err),
       });

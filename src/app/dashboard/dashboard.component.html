@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Loan Application Overview</h3>
+  
+    <div style="display: block; max-width: 400px; margin: auto;">
+      <canvas baseChart
+              [data]="{
+                labels: chartLabels,
+                datasets: [{
+                  data: chartData,
+                  backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+                }]
+              }"
+              [options]="chartOptions"
+              [type]="chartType">
+      </canvas>
+    </div>
+  
+    <div class="text-center mt-4">
+      <p><strong>Total Applications:</strong> {{ allApplications.length }}</p>
+    </div>
+  </div>
+  

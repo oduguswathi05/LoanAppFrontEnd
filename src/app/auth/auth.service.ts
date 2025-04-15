@@ -20,9 +20,11 @@ export class AuthService {
     });
   }
 
-  saveToken(token: string,role:string) {
+  saveToken(token: string,role:string,userId:number) {
     localStorage.setItem('authToken',token);
     localStorage.setItem('userRole', role); 
+    localStorage.setItem('userId', userId.toString()); 
+
   }
 
   getToken() {

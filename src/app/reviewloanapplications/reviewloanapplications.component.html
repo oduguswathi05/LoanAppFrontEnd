@@ -1,24 +1,57 @@
-<div class="container mt-3">
-    <h4>Review Applications</h4>
-    <div class="list-group" *ngIf="applications.length > 0" >
-        <div *ngFor="let app of applications" class="card mb-3 p-3">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Loan Amount:</strong> {{ app.loanAmount }}</li>
-              <li class="list-group-item"><strong>Annual Income:</strong> {{ app.annualIncome }}</li>
-              <li class="list-group-item"><strong>Employment Status:</strong> {{ app.employmentStatus }}</li>
-              <li class="list-group-item"><strong>Credit Score:</strong> {{ app.creditScore }}</li>
-              <li class="list-group-item"><strong>Residence Type:</strong> {{ app.residenceType }}</li>
-              <li class="list-group-item"><strong>Loan Term:</strong> {{ app.loanTerm }} months</li>
-              <li class="list-group-item"><strong>Property Address:</strong> {{ app.propertyAddress }}</li>
-              <li class="list-group-item"><strong>Property Value:</strong> {{ app.propertyValue }}</li>
-              <li class="list-group-item"><strong>Status:</strong> {{ app.loanStatus || 'Draft' }}</li>
-            </ul>
-            <button type="button" class="btn btn-primary mt-2" *ngIf="app.id !== undefined" (click)="Accept(app.id,'Approved')">Accept</button>
+<div class="container mt-4">
+  <h3 class="mb-4 text-center">Review Applications</h3>
+
+  <div class="row" *ngIf="applications.length > 0">
+    <div class="col-md-6 mb-4" *ngFor="let app of applications">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title">Application Details</h5>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>Loan Amount:</strong> {{ app.loanAmount }}</li>
+            <li class="list-group-item"><strong>Annual Income:</strong> {{ app.annualIncome }}</li>
+            <li class="list-group-item"><strong>Employment Status:</strong> {{ app.employmentStatus }}</li>
+            <li class="list-group-item"><strong>Credit Score:</strong> {{ app.creditScore }}</li>
+            <li class="list-group-item"><strong>Residence Type:</strong> {{ app.residenceType }}</li>
+            <li class="list-group-item"><strong>Loan Term:</strong> {{ app.loanTerm }} months</li>
+            <li class="list-group-item"><strong>Property Address:</strong> {{ app.propertyAddress }}</li>
+            <li class="list-group-item"><strong>Property Value:</strong> {{ app.propertyValue }}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{ app.loanStatus || 'Draft' }}</li>
+            <li class="list-group-item"><strong>userId:</strong> {{ app.userId }}</li>
+
+          </ul>
+          <div  class="border-top pt-3 mt-3">
+            <h6>Applicant Info</h6>
+            <div *ngIf="app.user">
+              <p><strong>Name:</strong> {{ app.user.FirstName }} {{ app.user.LastName }}</p>
+              <p><strong>Email:</strong> {{ app.user.Email }}</p>
+              <p><strong>Phone:</strong> {{ app.user.PhoneNumber }}</p>
+            </div>
           </div>
 
-    </div>
-    <p *ngIf="applications.length === 0">No Applications to be Reviewed.</p>
-</div>
 
-  
+          <div class="d-flex justify-content-between">
+            <button 
+              type="button" 
+              class="btn btn-success w-45" 
+              *ngIf="app.id !== undefined" 
+              (click)="reviewApplication(app.id, 'Approved')">
+              <i class="bi bi-check-circle"></i> Accept
+            </button>
+            <button 
+              type="button" 
+              class="btn btn-outline-danger w-45" 
+              *ngIf="app.id !== undefined" 
+              (click)="reviewApplication(app.id, 'Rejected')">
+              <i class="bi bi-x-circle"></i> Reject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center mt-5 text-muted" *ngIf="applications.length === 0">
+    No Applications to be Reviewed.
+  </p>
+</div>
 

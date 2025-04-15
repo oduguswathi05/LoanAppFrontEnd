@@ -2,3 +2,6 @@
     <h1>LoanLift</h1>
     <p class="tagline">Lift Your Dreams with Fast and Flexible Loan Options</p>
 </div>
+<div *ngIf="auth.isLoanOfficer()" class="dash-board">
+    <app-dashboard></app-dashboard>
+</div>

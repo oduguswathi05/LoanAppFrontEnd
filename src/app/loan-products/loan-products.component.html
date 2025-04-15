@@ -1,0 +1,85 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Loan Products</h3>
+
+  <form (submit)="saveProduct()" class="row g-3 align-items-end mb-4">
+    <div class="col-md-4">
+      <label class="form-label">Product Name</label>
+      <input [(ngModel)]="productForm.productName" name="productName" class="form-control" required />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Interest Rate (%)</label>
+      <input [(ngModel)]="productForm.interestRate" name="interestRate" type="number" step="0.01" class="form-control" required />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Min Loan Amount</label>
+      <input [(ngModel)]="productForm.minLoanAmount" name="minLoanAmount" type="number" class="form-control" required />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Max Loan Amount</label>
+      <input [(ngModel)]="productForm.maxLoanAmount" name="maxLoanAmount" type="number" class="form-control" required />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Min Term (months)</label>
+      <input [(ngModel)]="productForm.minLoanTerm" name="minLoanTerm" type="number" class="form-control" required />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Max Term (months)</label>
+      <input [(ngModel)]="productForm.maxLoanTerm" name="maxLoanTerm" type="number" class="form-control" required />
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Minimum Credit Score</label>
+      <input [(ngModel)]="productForm.minCreditScore" name="minCreditScore" type="number" class="form-control" required />
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Minimum Annual Income</label>
+      <input [(ngModel)]="productForm.minAnnualIncome" name="minAnnualIncome" type="number" class="form-control" required />
+    </div>
+
+    <div class="col-md-12 d-flex justify-content-end gap-2">
+      <button class="btn btn-primary w-100" type="submit">
+        {{ productForm.id === 0 ? 'Add Product' : 'Update Product' }}
+      </button>
+      <button class="btn btn-secondary w-100" type="button" (click)="resetForm()">Cancel</button>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Product Name</th>
+          <th>Interest Rate</th>
+          <th>Min / Max Amount</th>
+          <th>Min / Max Term</th>
+          <th>Min Credit Score</th>
+          <th>Min Annual Income</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.productName }}</td>
+          <td>{{ p.interestRate }}%</td>
+          <td>{{ p.minLoanAmount }} / {{ p.maxLoanAmount }}</td>
+          <td>{{ p.minLoanTerm }} / {{ p.maxLoanTerm }}</td>
+          <td>{{ p.minCreditScore}}</td>
+          <td>{{ p.minAnnualIncome}}</td>
+
+          <td class="d-flex gap-2">
+            <button class="btn btn-sm btn-warning flex-fill" (click)="edit(p)">
+              <i class="bi bi-pencil-square"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger flex-fill" (click)="delete(p.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

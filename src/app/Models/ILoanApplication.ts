@@ -1,3 +1,5 @@
+import { IUser } from "./IUser";
+
 export interface ILoanApplication {
   id?: number;
   loanAmount?: number;
@@ -13,4 +15,6 @@ export interface ILoanApplication {
   userId?: number,
   reviewComment?: string,
   reviewedDate?: string
+  user?:IUser;
+
 }

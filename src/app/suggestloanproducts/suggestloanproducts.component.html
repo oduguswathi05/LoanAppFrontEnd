@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Suggested Loan Products</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Product Name</th>
+            <th>Interest Rate</th>
+            <th>Min / Max Amount</th>
+            <th>Min / Max Term</th>
+            <th>Min Credit Score</th>
+            <th>Min Annual Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of suggestedProducts">
+            <td>{{ product.productName }}</td>
+            <td>{{ product.interestRate }}%</td>
+            <td>{{ product.minLoanAmount }} / {{ product.maxLoanAmount }}</td>
+            <td>{{ product.minLoanTerm }} / {{ product.maxLoanTerm }}</td>
+            <td>{{ product.minCreditScore }}</td>
+            <td>{{ product.minAnnualIncome }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
