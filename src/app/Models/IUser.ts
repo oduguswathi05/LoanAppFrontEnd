@@ -1,10 +1,8 @@
 export interface IUser{
     Id:number,
-    FirstName:string,
-    LastName:string,
-    Email:string,
+    firstName:string,
+    lastName:string,
+    email:string,
     Password:string,
-    // ConfirmPassword:string,
-    PhoneNumber:string
-    // Role:string
+    phoneNumber:string
 }
