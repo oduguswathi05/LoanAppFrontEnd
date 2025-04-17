@@ -11,6 +11,7 @@
               <li class="list-group-item"><strong>Loan Term:</strong> {{ app.loanTerm }} months</li>
               <li class="list-group-item"><strong>Property Address:</strong> {{ app.propertyAddress }}</li>
               <li class="list-group-item"><strong>Property Value:</strong> {{ app.propertyValue }}</li>
+              <li class="list-group-item"><strong>Property Value:</strong> {{ app.monthlyDebts }}</li>
               <li class="list-group-item"><strong>Status:</strong> {{ app.loanStatus || 'Draft' }}</li>
             </ul>
             <button type="button" class="btn btn-primary mt-2" *ngIf="app.id !== undefined" (click)="editDraft(app.id)">

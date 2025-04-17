@@ -43,7 +43,7 @@ export class LoanService {
   }
 
   submitApplication(LoanApplication: ILoanApplication) {
-    return this.http.post<number>(
+    return this.http.post<{ id: number; loanStatus: string }>(
       `${this.apiUrl}/LoanApplications/Submit`,
       LoanApplication
     );
@@ -72,17 +72,17 @@ export class LoanService {
     return this.http.get<ILoanProduct[]>(`${this.apiUrl}/LoanProducts`);
   }
 
-  updateLoanProduct(id: number,product: ILoanProduct) {
+  updateLoanProduct(id: number, product: ILoanProduct) {
     console.log(id);
-    console.log(product)
+    console.log(product);
     return this.http.put(`${this.apiUrl}/LoanProducts/${id}`, product);
   }
 
-  deleteLoanProduct(id: number){
+  deleteLoanProduct(id: number) {
     return this.http.delete(`${this.apiUrl}/LoanProducts/${id}`);
   }
 
-  suggestLoanProducts(){
+  suggestLoanProducts() {
     return this.http.get<ILoanProduct[]>(`${this.apiUrl}/LoanProducts/Suggest`);
   }
 }

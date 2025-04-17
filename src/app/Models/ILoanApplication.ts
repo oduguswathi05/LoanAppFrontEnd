@@ -12,9 +12,12 @@ export interface ILoanApplication {
   applicationDate?: string,
   propertyAddress?: string,
   propertyValue?: number,
+  monthlyDebts?:number,
   userId?: number,
   reviewComment?: string,
   reviewedDate?: string
   user?:IUser;
+  dti?:number;
+  ltv?:number;
 
 }

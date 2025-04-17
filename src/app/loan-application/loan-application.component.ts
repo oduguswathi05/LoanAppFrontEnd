@@ -82,11 +82,16 @@ export class LoanApplicationComponent {
 
     this.loanService.submitApplication(this.loanApplication).subscribe(
       {
-        next:(data)=>{
-          console.log(data);
-          alert("Application Submitted Successsfully");
+        next:(response)=>{
+          console.log(response);
+          if (response.loanStatus === 'Approved') {
+            alert("🎉 Your application is automatically approved!");
+          } else {
+            alert("✅ Application submitted successfully. It's under review.");
+          }
           this.loanApplication = this.initializeLoanApplication(); 
           this.loanStatus = 'Draft';
+          
 
         },
         error:(err)=>{
@@ -109,7 +114,8 @@ export class LoanApplicationComponent {
       residenceType: '',
       loanTerm: undefined,
       propertyAddress: '',
-      propertyValue: undefined 
+      propertyValue: undefined ,
+      monthlyDebts:undefined
     };
   }
 }

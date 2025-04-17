@@ -15,8 +15,12 @@
             <li class="list-group-item"><strong>Loan Term:</strong> {{ app.loanTerm }} months</li>
             <li class="list-group-item"><strong>Property Address:</strong> {{ app.propertyAddress }}</li>
             <li class="list-group-item"><strong>Property Value:</strong> {{ app.propertyValue }}</li>
+            <li class="list-group-item"><strong>Monthly Debts:</strong> {{ app.monthlyDebts }}</li>
+            <li class="list-group-item"><strong>DTI:</strong> {{ app.dti| number:'1.2-2' }}%</li>
+            <li class="list-group-item"><strong>LTV:</strong> {{ app.ltv | number:'1.2-2'}}%</li>
+
             <li class="list-group-item"><strong>Status:</strong> {{ app.loanStatus || 'Draft' }}</li>
-            <li class="list-group-item"><strong>userId:</strong> {{ app.userId }}</li>
+            <!-- <li class="list-group-item"><strong>userId:</strong> {{ app.userId }}</li> -->
 
           </ul>
           <div  class="border-top pt-3 mt-3">
