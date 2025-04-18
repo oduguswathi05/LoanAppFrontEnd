@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of suggestedProducts">
+          <tr *ngFor="let product of suggestedProducts" (click)="onProductClick(product)">
             <td>{{ product.productName }}</td>
             <td>{{ product.interestRate }}%</td>
             <td>{{ product.minLoanAmount }} / {{ product.maxLoanAmount }}</td>
@@ -23,6 +23,12 @@
           </tr>
         </tbody>
       </table>
+      <div *ngIf="selectedProductDetails">
+        <h3>Product Details</h3>
+        <p><strong>Product Name:</strong> {{ selectedProductDetails.productName }}</p>
+        <p><strong>Interest Rate:</strong> {{ selectedProductDetails.adjustedInterestRate }}%</p>
+        <p><strong>Eligibility:</strong> {{ selectedProductDetails.eligibilityMessage }}</p>
+      </div>
     </div>
   </div>
   

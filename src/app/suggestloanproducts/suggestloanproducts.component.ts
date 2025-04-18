@@ -13,12 +13,22 @@ import { CommonModule } from '@angular/common';
 })
 export class SuggestloanproductsComponent implements OnInit {
   suggestedProducts: ILoanProduct[] = [];
+  selectedProductDetails: any;
+
 
   constructor(private loanService:LoanService) {}
   
 
   ngOnInit(): void {
-    this.loanService.suggestLoanProducts().subscribe({
+    // this.loanService.suggestLoanProducts().subscribe({
+    //   next:(products)=>{
+    //     this.suggestedProducts = products
+    //   },
+    //   error:(err)=>{
+    //     alert(err.error);
+    //   }
+    // })
+    this.loanService.getAllLoanProducts().subscribe({
       next:(products)=>{
         this.suggestedProducts = products
       },
@@ -26,6 +36,18 @@ export class SuggestloanproductsComponent implements OnInit {
         alert(err.error);
       }
     })
+  }
+
+  onProductClick(product:ILoanProduct){
+      this.loanService.productEligibility(product).subscribe({
+        next:(data)=>{
+             this.selectedProductDetails = data;
+             console.log(data);
+        },
+        error:(err)=>{
+          alert(err.error);
+        }
+      })
   }
 
 }

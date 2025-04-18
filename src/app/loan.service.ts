@@ -82,7 +82,12 @@ export class LoanService {
     return this.http.delete(`${this.apiUrl}/LoanProducts/${id}`);
   }
 
-  suggestLoanProducts() {
-    return this.http.get<ILoanProduct[]>(`${this.apiUrl}/LoanProducts/Suggest`);
+  // suggestLoanProducts() {
+  //   return this.http.get<ILoanProduct[]>(`${this.apiUrl}/LoanProducts/Suggest`);
+  // }
+
+  productEligibility(product:ILoanProduct){
+    return this.http.post<any>(`${this.apiUrl}/LoanProducts/product-Eligibility`,product)
   }
+
 }
